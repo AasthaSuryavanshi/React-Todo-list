@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scrollbar-hide::-webkit-scrollbar{
+  /* height: 30px; */
+  width: 3px;
+  /* background-color: aquamarine; */
+  margin-left: 2px;
+  
+}
+.scrollbar-hidethumb::-webkit-scrollbar-thumb{
+  height: 2%;
+  background-color: orangered;
+}
+.scrollbar-hidetrack::-webkit-scrollbar-track {
+  border-radius: 100px;
+}
