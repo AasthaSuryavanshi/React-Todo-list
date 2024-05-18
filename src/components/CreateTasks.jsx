@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { nanoid } from 'nanoid'
 
 import { IoMdAdd } from "react-icons/io";
+import { dataHolder } from '../context/DataContext';
 
 
 
-function CreateTasks(props) {
-    const tasks= props.tasks 
-    const settasks= props.settasks 
-    const [title, settitle] = useState("")
+function CreateTasks() {
 
+  const {tasks,settasks,title,settitle} = useContext(dataHolder)
+
+    
+    
     const submitHandler = (e) => {
         e.preventDefault();
         const newTodo = {id: nanoid(), title, completed:false}

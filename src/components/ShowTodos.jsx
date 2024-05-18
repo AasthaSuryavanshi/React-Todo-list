@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaCircleCheck } from "react-icons/fa6";
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
 import { RiCheckboxBlankCircleLine } from "react-icons/ri";
+import { dataHolder } from '../context/DataContext';
 
 
-function ShowTodos(props) {
-    const tasks = props.tasks
-    const settasks = props.settasks
+function ShowTodos() {
+    
+  const {tasks,settasks} = useContext(dataHolder)
+  const {title,settitle} = useContext(dataHolder)
+
+
 
 
     const completeHandler = (index) => {
@@ -33,12 +37,15 @@ function ShowTodos(props) {
     return (
 
       <div key = {task.id}  className='tasks w-full h-[8vh] border-[1px] border-orange-500 rounded-full flex items-center justify-between px-6 flex-shrink-0'>
+        <div className='flex items-center gap-4'>
+
         {task.completed ? 
           < FaCircleCheck onClick={() => completeHandler(index)} className='text-green-600'/>
           : 
           < RiCheckboxBlankCircleLine onClick={() => completeHandler(index)} className='text-white'/>
         }
-        <h1 className={`${task.completed ?  " line-through " : ""}text-white font-medium -ml-[48vh] text-[2.5vh]`}>{task.title}</h1>
+        <h1 className={`${task.completed ?  " line-through " : ""}text-white font-medium  text-[2.5vh]`}>{task.title}</h1>
+        </div>
         <  IoMdClose onClick={() => deleteHandler(task.id)} className='text-orange-500 font-extrabold text-[2.7vh]'/>
       </div>
 
