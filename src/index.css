@@ -16,3 +16,7 @@
 .scrollbar-hidetrack::-webkit-scrollbar-track {
   border-radius: 100px;
 }
+Circle{
+  transition: all ease 1s;
+  
+}
